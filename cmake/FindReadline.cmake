@@ -7,6 +7,8 @@
 # READLINE_readline_LIBRARY, where to find the READLINE library.
 # READLINE_ncurses_LIBRARY, where to find the ncurses library [might not be defined]
 
+MESSAGE("Searching for readline library")
+
 # Apple readline does not support readline hooks
 # So we look for another one by default
 IF(APPLE)
@@ -74,6 +76,7 @@ ENDIF(READLINE_INCLUDE_DIR)
 IF(READLINE_FOUND)
   MESSAGE(STATUS "Found readline library")
 ELSE(READLINE_FOUND)
+MESSAGE(STATUS "NOT Found readline library")
   IF(READLINE_FIND_REQUIRED)
     MESSAGE(FATAL_ERROR "Could not find readline -- please give some paths to CMake")
   ENDIF(READLINE_FIND_REQUIRED)
